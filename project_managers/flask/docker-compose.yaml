@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  web_service:
+    build: .
+    container_name: flask_web_service
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/app
+    environment:
+      TZ: Asia/Tokyo
+      FLASK_ENV: development
+    command: flask run --debugger --reload --host 0.0.0.0 --port 5000
+  # other services

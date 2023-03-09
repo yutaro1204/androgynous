@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    container_name: django_db_service
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  web_service:
+    build: .
+    container_name: django_web_service
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - db

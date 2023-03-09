@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+  composer:
+    image: composer
+    command: create-project --prefer-dist laravel/laravel .
+    volumes:
+      - ../../src:/app

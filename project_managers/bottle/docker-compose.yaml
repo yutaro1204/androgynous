@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  web_service:
+    build: .
+    container_name: bottle_web_service
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/app
+    command: python3 app.py
+  # other services
